@@ -1,0 +1,22 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    "lib": ["ES5", "ES6", "ES7"],
+    "target": "es2017",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@util/*": ["util/*"]
+    }
+  },
+  "include": [
+    "*/**/*.ts",
+    "util/*.ts"
+  ],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+    "esm": true
+  }
+}

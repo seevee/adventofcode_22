@@ -1,0 +1,19 @@
+{
+  "name": "adventofcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "advent": "ts-node $DAY/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^18.11.10",
+    "module-alias": "^2.2.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.1"
+  }
+}
