@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "advent": "ts-node $DAY/index.ts",
+    "advent": "ts-node src/$DAY/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

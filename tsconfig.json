@@ -4,15 +4,17 @@
     "lib": ["ES5", "ES6", "ES7"],
     "target": "es2017",
     "module": "esnext",
+    "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "src",
     "paths": {
       "@util/*": ["util/*"]
     }
   },
   "include": [
-    "*/**/*.ts",
+    "src/**/*.ts",
     "util/*.ts"
   ],
   "ts-node": {
