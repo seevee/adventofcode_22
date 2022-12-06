@@ -2,10 +2,15 @@ import { readFileToString } from '../util/file.js'
 
 const file = await readFileToString(import.meta.url, 'input')
 
-type InputChar = 'A' | 'B' | 'C' | 'X' | 'Y' | 'Z'
-type InputCharTuple = [InputChar, InputChar]
+type TheirChar = 'A' | 'B' | 'C'
+type OurChar = 'X' | 'Y' | 'Z'
+type InputChar = TheirChar | OurChar
+type RoundTuple = [TheirChar, OurChar]
 
-const formattedInput: InputCharTuple[] = file.split('\n').filter(str => !!str).map(r => r.split(' ') as InputCharTuple)
+const formattedInput: RoundTuple[] = file
+  .split('\n')
+  .filter(str => !!str)
+  .map(r => r.split(' ') as RoundTuple)
 
 const rpsMap1: Record<InputChar, number> = {
   // theirs
@@ -52,7 +57,7 @@ const rpsMap: Record<InputChar, number> = {
   Z: 1, // win
 }
 
-const getChoice = (theirs: InputChar, result: InputChar): number => {
+const getChoice = (theirs: TheirChar, result: OurChar): number => {
   return (rpsMap[theirs] + rpsMap[result]) % 3 + 1
 }
 
