@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "advent": "ts-node src/$DAY/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/**/*.ts"
   },
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
     "@types/node": "^18.11.11",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "@typescript-eslint/parser": "^5.45.1",
+    "eslint": "^8.29.0",
     "module-alias": "^2.2.2",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.1",
