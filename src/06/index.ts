@@ -1,7 +1,7 @@
 import { readFileToString } from '../util/file.js'
 
 const file = await readFileToString(import.meta.url, 'input')
-const fileInput: string[] = file.split('\n').filter(x => !!x)[0].split('')
+const fileInput: string[] = file.split('\n').filter(Boolean)[0].split('')
 
 const processChars = (chars: string[], numDistinct: number) => {
   for (let i = numDistinct; i <= chars.length; i++) {

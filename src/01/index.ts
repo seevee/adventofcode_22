@@ -4,7 +4,7 @@ const file = await readFileToString(import.meta.url, 'input')
 
 const elfInventorySums = file.split('\n\n').map((inventory: string) => {
   return inventory.split('\n').reduce((acc, item) => acc + Number(item), 0)
-}).filter((n: number): n is number => !!n)
+}).filter(Boolean)
 
 // Part 1 Answer
 console.log(Math.max(...elfInventorySums))

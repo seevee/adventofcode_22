@@ -6,7 +6,7 @@ type RangePair = [Range, Range]
 const file = await readFileToString(import.meta.url, 'input')
 const fileInput: RangePair[] = file
   .split('\n')
-  .filter(s => !!s)
+  .filter(Boolean)
   .map(s => s.split(',').map(s => s.split('-').map(Number)) as RangePair)
 
 const rangesContained = (pair: RangePair) => ((

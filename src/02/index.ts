@@ -9,7 +9,7 @@ type RoundTuple = [TheirChar, OurChar]
 
 const formattedInput: RoundTuple[] = file
   .split('\n')
-  .filter(str => !!str)
+  .filter(Boolean)
   .map(r => r.split(' ') as RoundTuple)
 
 const rpsMap1: Record<InputChar, number> = {
