@@ -20,7 +20,7 @@ const crateStacks: CrateStacks = fileInput.slice(0,8).reduce((acc, row) => {
 const crateMoves: CrateMove[] = fileInput.slice(10).reduce((acc, row) => {
   const m = row.match(/\d+/g)
   if (m && m.length === 3)
-    acc.push(m.map(x => parseInt(x)) as CrateMove)
+    acc.push(m.map(Number) as CrateMove)
   return acc
 }, [] as CrateMove[])
 

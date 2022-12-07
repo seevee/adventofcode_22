@@ -7,7 +7,7 @@ const file = await readFileToString(import.meta.url, 'input')
 const fileInput: RangePair[] = file
   .split('\n')
   .filter(s => !!s)
-  .map(s => s.split(',').map(s => s.split('-').map(x => parseInt(x))) as RangePair)
+  .map(s => s.split(',').map(s => s.split('-').map(Number)) as RangePair)
 
 const rangesContained = (pair: RangePair) => ((
   pair[0][0] <= pair[1][0] && pair[0][1] >= pair[1][1]
