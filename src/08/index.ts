@@ -3,14 +3,15 @@ import { readFileToString } from '../util/file.js'
 const file = await readFileToString(import.meta.url, 'input')
 const treeGrid: number[][] = file.split('\n').filter(Boolean).map(x => x.split('').map(Number))
 
-const transpose = (a: number[][]) => a[0].map((_, c) => a.map((_, r) => a[r][c]))
+const transpose = <T>(a: T[][]) => a[0].map((_, c) => a.map((_, r) => a[r][c]))
 const transposedTreeGrid = transpose(treeGrid)
 
 const treeVisibleFromRowEnds = (row: number[], tree: number, treeIndex: number): boolean => {
   return [row.slice(0, treeIndex), row.slice(treeIndex + 1)].some(x => tree > Math.max(...x))
 }
 
-const treesVisible = treeGrid.reduce((acc, row, rowIndex) => {
+// Part 1 Answer
+console.log(treeGrid.reduce((acc, row, rowIndex) => {
   return acc + row.reduce((rowAcc, tree, treeIndex) => {
     return (([0, treeGrid.length - 1].includes(rowIndex) || [0, row.length - 1].includes(treeIndex))
       || treeVisibleFromRowEnds(row, tree, treeIndex)
@@ -18,10 +19,7 @@ const treesVisible = treeGrid.reduce((acc, row, rowIndex) => {
     ? rowAcc + 1
     : rowAcc
   }, 0)
-}, 0)
-
-// Part 1 Answer
-console.log(treesVisible)
+}, 0))
 
 const seriesScore = (treeSeries: number[], index: number): number => {
   const height = treeSeries[index]
